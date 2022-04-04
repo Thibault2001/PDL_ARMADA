@@ -1,7 +1,7 @@
 package DAO;
 
 public class ConnexionDAO {
-	final static String URL   = "jdbc:oracle:thin:@localhost:1521:xe";
+	final static String URL   = "jdbc:oracle:thin:@oracle.esigelec.fr:1521:orcl";
 	final static String LOGIN = "C##_G2_G4_APP";
 	final static String PASS  = "APP_2_4";
 	
