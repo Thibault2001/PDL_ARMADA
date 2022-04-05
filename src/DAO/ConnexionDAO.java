@@ -1,4 +1,5 @@
 package DAO;
+import java.sql.*;
 
 public class ConnexionDAO {
 	final static String URL   = "jdbc:oracle:thin:@oracle.esigelec.fr:1521:orcl";

@@ -1,6 +1,7 @@
 package DAO;
 
 import Lot1.*;
+import java.sql.*;
 
 public class ZoneDAO extends ConnexionDAO {
 	public ZoneDAO() {
@@ -8,7 +9,7 @@ public class ZoneDAO extends ConnexionDAO {
 	}
 	
 	public int addZone(Zone zone ) {
-		ConnexionDAO con = null;
+		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
 
@@ -17,11 +18,10 @@ public class ZoneDAO extends ConnexionDAO {
 
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			// preparation de l'instruction SQL, chaque ? represente une valeur
-			ps = con.prepareStatement("INSERT INTO zone (id, name, address, email) VALUES (?, ?, ?, ?)");
+			ps = con.prepareStatement("INSERT INTO zone (idZone, placeParking, plageHoraire, typeZone) VALUES (1, 230, matin, locataire)");
 			ps.setInt(1, zone.getIdZone());
 			ps.setString(2, zone.getPlageHoraire());
-			ps.setString(3, zone.getPlaceParking());
+			ps.setInt(3, zone.getPlaceParking());
 			ps.setString(4, zone.getTypeZone());
 
 			// Execution de la requete
