@@ -1,21 +1,32 @@
 package Main;
 
-import Tronc_commun.Bateau;
-import Tronc_commun.Compte;
-import Tronc_commun.FamilleAccueil;
-import Tronc_commun.Inscription;
-import Tronc_commun.Organisateur;
-import Tronc_commun.Participant;
-import Tronc_commun.PersonneMorale;
-import Tronc_commun.Vip;
-
+import Tronc_commun.*;
+import GUI.*;
+import DAO.*;
+import Lot1.*;
 
 public class Main
 {
 	public static void main(String[] args) 
 	{
-		Inscription inscription1 = new Inscription("romain.burguet@groupe-esigelec.org", "17740776", "Romain", "Burguet", "Vendeur de légumes", "Je viens vendre des légumes afin de gagner de l'argent", false);
+		Inscription inscription1 = new Inscription("thib@gmail.com", "23005034", "Thib", "Seraf", "Vendeur", "Aucun", false);
 		inscription1.afficher();
+		
+		
+		int returnValue;
+		ZoneDAO ZoneDAO = new ZoneDAO();
+		// test du constructeur
+		Zone z1 = new Zone(1, 100, "matin", "locataire",0);
+		Zone z2 = new Zone(2, 200, "Soir", "services publics",30);
+		Zone z3 = new Zone(3, 300, "matin", "services publics",100);
+		// test de la methode add
+		returnValue = ZoneDAO.addZone(z1);
+		System.out.println(returnValue + " zone ajoutee(s)");
+		returnValue = ZoneDAO.addZone(z2);
+		System.out.println(returnValue + " zone ajoutee(s)");
+		returnValue = ZoneDAO.addZone(z3);
+		System.out.println(returnValue + " zone ajoutee(s)");
+		System.out.println();
 	}
 
 }
