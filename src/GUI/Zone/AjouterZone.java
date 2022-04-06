@@ -98,7 +98,7 @@ public class AjouterZone {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(326, 236, 85, 21);
+		btnNewButton.setBounds(341, 236, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 	}
 

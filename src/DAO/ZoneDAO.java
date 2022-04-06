@@ -20,12 +20,11 @@ public class ZoneDAO extends ConnexionDAO {
 
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("INSERT INTO zone (idZone, placeParking, plageHoraire, typeZone, nbrPlaceReserve) VALUES (?, ? , ? ,?, ?)");
-			ps.setString(1, zone.getIdZone());
-			ps.setInt(2, zone.getPlaceParking());
-			ps.setString(3, zone.getPlageHoraire());
-			ps.setString(4, zone.getTypeZone());
-			ps.setInt(5, zone.getNbrPlaceReserve());
+			ps = con.prepareStatement("INSERT INTO zone (idZone, placeParking, plageHoraire, typeZone, nbrPlaceReserve) VALUES (IDZONE_SEQ.nextVal, ? , ? ,?, ?)");
+			ps.setInt(1, zone.getPlaceParking());
+			ps.setString(2, zone.getPlageHoraire());
+			ps.setString(3, zone.getTypeZone());
+			ps.setInt(4, zone.getNbrPlaceReserve());
 
 			// Execution de la requete
 			returnValue = ps.executeUpdate();
@@ -75,8 +74,7 @@ public class ZoneDAO extends ConnexionDAO {
 
 		} catch (Exception e) {
 			if (e.getMessage().contains("ORA-02292"))
-				System.out.println("Ce fournisseur possede des articles, suppression impossible !"
-						         + " Supprimer d'abord ses articles ou utiiser la méthode de suppression avec articles.");
+				System.out.println("suppression impossible");
 			else
 				e.printStackTrace();
 		} finally {
