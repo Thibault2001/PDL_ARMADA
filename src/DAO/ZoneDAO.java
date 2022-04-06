@@ -20,11 +20,12 @@ public class ZoneDAO extends ConnexionDAO {
 
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("INSERT INTO zone (idZone, placeParking, plageHoraire, typeZone, nbrPlaceReserve) VALUES (IDZONE_SEQ.nextVal, ? , ? ,?, ?)");
+			ps = con.prepareStatement("INSERT INTO zone (idZone, placeParking, plageHoraire, typeZone, nbrPlaceReserve, nomZone) VALUES (IDZONE_SEQ.nextVal, ? , ? ,? , ?,?)");
 			ps.setInt(1, zone.getPlaceParking());
 			ps.setString(2, zone.getPlageHoraire());
 			ps.setString(3, zone.getTypeZone());
 			ps.setInt(4, zone.getNbrPlaceReserve());
+			ps.setString(5, zone.getNomZone());
 
 			// Execution de la requete
 			returnValue = ps.executeUpdate();

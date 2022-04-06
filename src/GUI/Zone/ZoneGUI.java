@@ -56,6 +56,7 @@ public class ZoneGUI {
 		JButton btnNewButton = new JButton("Supprimer une zone");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//ajouter la fenetre suivante
 			}
 		});
 		btnNewButton.setBounds(78, 149, 134, 44);
@@ -64,6 +65,9 @@ public class ZoneGUI {
 		JButton btnAjouterUneZone = new JButton("Ajouter une zone");
 		btnAjouterUneZone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AjouterZone nextpage = new AjouterZone();
+				nextpage.main(null);
+				frame.dispose();
 			}
 		});
 		btnAjouterUneZone.setBounds(257, 149, 134, 44);

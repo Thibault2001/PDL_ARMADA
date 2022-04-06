@@ -40,12 +40,12 @@ public class SupprimerZone {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 546, 380);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Supprimer");
-		btnNewButton.setBounds(51, 232, 85, 21);
+		btnNewButton.setBounds(51, 232, 101, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnRetour = new JButton("Retour");
@@ -53,7 +53,7 @@ public class SupprimerZone {
 		frame.getContentPane().add(btnRetour);
 		
 		JLabel lblNewLabel = new JLabel("Nom de la zone \u00E0 supprimer :");
-		lblNewLabel.setBounds(82, 131, 155, 13);
+		lblNewLabel.setBounds(51, 131, 186, 13);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
@@ -62,7 +62,7 @@ public class SupprimerZone {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Supprimer une zone");
-		lblNewLabel_1.setBounds(177, 44, 107, 13);
+		lblNewLabel_1.setBounds(129, 44, 155, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 	}
 
