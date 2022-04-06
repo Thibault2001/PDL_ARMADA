@@ -110,6 +110,9 @@ public class AjouterZone {
 				returnValue=zoneDAO.addZone(zone);
 				frame.dispose();
 				System.out.println(returnValue + " zone ajoutee(s)");
+				ZoneGUI nextpage = new ZoneGUI();
+				nextpage.main(null);
+				frame.dispose();
 			}
 		});
 		btnValider.setBounds(406, 274, 134, 44);
