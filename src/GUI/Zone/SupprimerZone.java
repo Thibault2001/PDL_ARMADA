@@ -1,27 +1,33 @@
-package GUI.Zone;
+import javax.swing.*;
+import java.awt.*;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class SupprimerZone {
+import DAO.*;
+import Lot1.*;;
 
-	private JFrame frame;
-	private JTextField textField;
+public class SupprimerZone 
+{
+
+	private JFrame frameSupprimerZone;
+	private JTextField textFieldNumZone;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args) 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
+				try 
+				{
 					SupprimerZone window = new SupprimerZone();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
+					window.frameSupprimerZone.setVisible(true);
+				} catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -31,39 +37,79 @@ public class SupprimerZone {
 	/**
 	 * Create the application.
 	 */
-	public SupprimerZone() {
+	public SupprimerZone() 
+	{
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 546, 380);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+	private void initialize() 
+	{
+		frameSupprimerZone = new JFrame();
+		frameSupprimerZone.setTitle("Supprimer une zone");
+		frameSupprimerZone.setBounds(100, 100, 812, 697);
+		frameSupprimerZone.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameSupprimerZone.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Supprimer");
-		btnNewButton.setBounds(51, 232, 101, 21);
-		frame.getContentPane().add(btnNewButton);
+		JButton btn_retour = new JButton("Retour");
+		btn_retour.setForeground(Color.BLACK);
+		btn_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btn_retour.setBackground(Color.BLACK);
+		btn_retour.setBounds(44, 607, 175, 27);
+		btn_retour.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				ZoneGUI nextpage = new ZoneGUI();
+				nextpage.main(null);
+				frameSupprimerZone.dispose();
+			}
+		});
+		frameSupprimerZone.getContentPane().add(btn_retour);
 		
-		JButton btnRetour = new JButton("Retour");
-		btnRetour.setBounds(321, 232, 85, 21);
-		frame.getContentPane().add(btnRetour);
+		textFieldNumZone = new JTextField();
+		textFieldNumZone.setBounds(500, 148, 262, 27);
+		frameSupprimerZone.getContentPane().add(textFieldNumZone);
+		textFieldNumZone.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nom de la zone \u00E0 supprimer :");
-		lblNewLabel.setBounds(51, 131, 186, 13);
-		frame.getContentPane().add(lblNewLabel);
+		JButton btn_valider = new JButton("Valider");
+		btn_valider.setForeground(Color.BLACK);
+		btn_valider.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btn_valider.setBackground(Color.BLACK);
+		btn_valider.setBounds(587, 607, 175, 27);
+		btn_valider.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(textFieldNumZone.getText().length()>0 && textFieldTailleZone.getText().length()>0 && textFieldRiveZone.getText().length()>0)
+				{
+					Zone Zone = new Zone(textFieldNumZone.getText(),textFieldTailleZone.getText(),textFieldRiveZone.getText());
+					new ZoneDAO().delete(Zone);
+					
+					Supprimer_Zone_fin_GUI nextpage = new Supprimer_Zone_fin_GUI();
+					nextpage.main(null);
+					frameSupprimerZone.dispose();
+				}
+				else
+				{
+					Supprimer_Zone_erreur_GUI nextpage = new Supprimer_Zone_erreur_GUI();
+					nextpage.main(null);
+					frameSupprimerZone.dispose();
+				}
+			}
+		});
+		frameSupprimerZone.getContentPane().add(btn_valider);
 		
-		textField = new JTextField();
-		textField.setBounds(231, 128, 96, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		JLabel lblSupprimerUnZone = new JLabel("Supprimer une zone");
+		lblSupprimerUnZone.setFont(new Font("Engravers MT", Font.PLAIN, 25));
+		lblSupprimerUnZone.setBounds(138, 45, 539, 46);
+		frameSupprimerZone.getContentPane().add(lblSupprimerUnZone);
 		
-		JLabel lblNewLabel_1 = new JLabel("Supprimer une zone");
-		lblNewLabel_1.setBounds(129, 44, 155, 13);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel labelNumeroZone = new JLabel("Nom de la zone :");
+		labelNumeroZone.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		labelNumeroZone.setBounds(44, 156, 189, 19);
+		frameSupprimerZone.getContentPane().add(labelNumeroZone);
 	}
-
 }

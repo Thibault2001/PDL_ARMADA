@@ -65,9 +65,9 @@ public class ZoneDAO extends ConnexionDAO {
 			// preparation de l'instruction SQL, le ? represente la valeur de l'ID
 			// a communiquer dans la suppression.
 			// le getter permet de recuperer la valeur de l'ID du fournisseur
-			System.out.println("id zone a supprimer :");
+			System.out.println("Nom de la zone a supprimer :");
 			String idDelete= lectureClavier.nextLine();
-			ps = con.prepareStatement("DELETE FROM Zone WHERE idZone = ?");
+			ps = con.prepareStatement("DELETE FROM Zone WHERE nomZone = ?");
 			ps.setString(1, idDelete);
 
 			// Execution de la requete
