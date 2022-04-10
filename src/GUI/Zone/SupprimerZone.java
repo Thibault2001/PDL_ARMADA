@@ -117,7 +117,7 @@ private void initialize() {
 				Zone zone = new Zone (textFieldNomZone.getText(),Integer.parseInt(textFieldNbrPlace.getText()), textFieldNbrPlace.getText(), textFieldTypeZone.getText(), Integer.parseInt(textFieldNbrPlaceReserve.getText()));
 				new ZoneDAO().delete(zone);
 				
-				SupprimerZone nextpage = new SupprimerZone();
+				ZoneGUI nextpage = new ZoneGUI();
 				nextpage.main(null);
 				frameSupprimerZone.dispose();
 			}
