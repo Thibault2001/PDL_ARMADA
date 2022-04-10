@@ -1,6 +1,7 @@
 package GUI.Zone;
 
 import javax.swing.*;
+import GUI.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -103,22 +104,30 @@ private void initialize() {
 	textFieldNbrPlaceReserve.setBounds(406, 198, 96, 19);
 	frameAjouterZone.getContentPane().add(textFieldNbrPlaceReserve);
 	
-	JLabel lblNewLabel_1 = new JLabel("Supprimer une zone");
+	JLabel lblNewLabel_1 = new JLabel("Ajouter une zone");
 	lblNewLabel_1.setBounds(197, 22, 110, 13);
 	frameAjouterZone.getContentPane().add(lblNewLabel_1);
 	
 	JButton btnValider = new JButton("Valider");
 	btnValider.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			int returnValue;
-			Zone zone = new Zone (textFieldNomZone.getText(),Integer.parseInt(textFieldNbrPlace.getText()), textFieldNbrPlace.getText(), textFieldTypeZone.getText(), Integer.parseInt(textFieldNbrPlaceReserve.getText()));
-			ZoneDAO zoneDAO =new ZoneDAO();
-			returnValue=zoneDAO.addZone(zone);
-			frameAjouterZone.dispose();
-			System.out.println(returnValue + " zone ajoutee(s)");
-			ZoneGUI nextpage = new ZoneGUI();
-			nextpage.main(null);
-			frameAjouterZone.dispose();
+			if(textFieldNomZone.getText().length()>0 && textFieldNbrPlace.getText().length()>0 && textFieldNbrPlaceReserve.getText().length()>0 )
+			{
+				Zone zone = new Zone (textFieldNomZone.getText(),Integer.parseInt(textFieldNbrPlace.getText()), textFieldNbrPlace.getText(), textFieldTypeZone.getText(), Integer.parseInt(textFieldNbrPlaceReserve.getText()));
+				new ZoneDAO().delete(zone);
+				
+				AjouterZone nextpage = new AjouterZone();
+				nextpage.main(null);
+				frameAjouterZone.dispose();
+			}
+			else
+			{
+				AjouterZone nextpage = new AjouterZone();
+				ErrorSaisie nextpage2 = new ErrorSaisie();
+				nextpage.main(null);
+				nextpage2.main(null);
+				frameAjouterZone.dispose();
+			}
 		}
 	});
 	btnValider.setBounds(406, 274, 134, 44);

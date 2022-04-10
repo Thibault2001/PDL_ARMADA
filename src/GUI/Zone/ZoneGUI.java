@@ -53,24 +53,26 @@ public class ZoneGUI {
 		lblNewLabel_1.setBounds(10, 10, 159, 88);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("Supprimer une zone");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnSupprimerZone = new JButton("Supprimer une zone");
+		btnSupprimerZone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ajouter la fenetre suivante
+				SupprimerZone nextpage = new SupprimerZone();
+				nextpage.main(null);
+				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(78, 149, 134, 44);
-		frame.getContentPane().add(btnNewButton);
+		btnSupprimerZone.setBounds(78, 149, 134, 44);
+		frame.getContentPane().add(btnSupprimerZone);
 		
-		JButton btnAjouterUneZone = new JButton("Ajouter une zone");
-		btnAjouterUneZone.addActionListener(new ActionListener() {
+		JButton btnAjouterZone = new JButton("Ajouter une zone");
+		btnAjouterZone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AjouterZone nextpage = new AjouterZone();
 				nextpage.main(null);
 				frame.dispose();
 			}
 		});
-		btnAjouterUneZone.setBounds(257, 149, 134, 44);
-		frame.getContentPane().add(btnAjouterUneZone);
+		btnAjouterZone.setBounds(257, 149, 134, 44);
+		frame.getContentPane().add(btnAjouterZone);
 	}
 }

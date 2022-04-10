@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import DAO.*;
-import Lot1.*;;
+import Lot1.*;
+import GUI.*;
 
 public class SupprimerZone 
 {
@@ -124,6 +125,8 @@ private void initialize() {
 			{
 				SupprimerZone nextpage = new SupprimerZone();
 				nextpage.main(null);
+				ErrorSaisie nextpage2 = new ErrorSaisie();
+				nextpage2.main(null);
 				frameSupprimerZone.dispose();
 			}
 		}
