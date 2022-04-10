@@ -74,5 +74,10 @@ public class ZoneGUI {
 		});
 		btnAjouterZone.setBounds(257, 149, 134, 44);
 		frame.getContentPane().add(btnAjouterZone);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Armada.jpg"));
+		lblNewLabel.setBounds(243, 23, 183, 123);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }

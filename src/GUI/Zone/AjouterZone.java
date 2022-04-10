@@ -74,7 +74,7 @@ private void initialize() {
 	
 	textFieldPlageHoraire = new JTextField();
 	textFieldPlageHoraire.setColumns(10);
-	textFieldPlageHoraire.setBounds(406, 95, 96, 19);
+	textFieldPlageHoraire.setBounds(406, 131, 96, 19);
 	frameAjouterZone.getContentPane().add(textFieldPlageHoraire);
 	
 	JLabel lblIndiquerLeNombre = new JLabel("Indiquer le nombre de place :\r\n\r\n\r\n");
@@ -82,7 +82,7 @@ private void initialize() {
 	frameAjouterZone.getContentPane().add(lblIndiquerLeNombre);
 	
 	textFieldNbrPlace = new JTextField();
-	textFieldNbrPlace.setBounds(406, 131, 96, 19);
+	textFieldNbrPlace.setBounds(406, 95, 96, 19);
 	frameAjouterZone.getContentPane().add(textFieldNbrPlace);
 	textFieldNbrPlace.setColumns(10);
 	
@@ -113,10 +113,10 @@ private void initialize() {
 		public void actionPerformed(ActionEvent e) {
 			if(textFieldNomZone.getText().length()>0 && textFieldNbrPlace.getText().length()>0 && textFieldNbrPlaceReserve.getText().length()>0 )
 			{
-				Zone zone = new Zone (textFieldNomZone.getText(),Integer.parseInt(textFieldNbrPlace.getText()), textFieldNbrPlace.getText(), textFieldTypeZone.getText(), Integer.parseInt(textFieldNbrPlaceReserve.getText()));
-				new ZoneDAO().delete(zone);
+				Zone zone = new Zone (textFieldNomZone.getText(),Integer.parseInt(textFieldNbrPlace.getText()), textFieldPlageHoraire.getText(), textFieldTypeZone.getText(), Integer.parseInt(textFieldNbrPlaceReserve.getText()));
+				new ZoneDAO().addZone(zone);
 				
-				AjouterZone nextpage = new AjouterZone();
+				ZoneGUI nextpage = new ZoneGUI();
 				nextpage.main(null);
 				frameAjouterZone.dispose();
 			}
