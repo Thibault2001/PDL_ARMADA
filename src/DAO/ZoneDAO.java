@@ -53,44 +53,56 @@ public class ZoneDAO extends ConnexionDAO {
 		return returnValue;
 	}
 
-	public int deleteZone(Zone Zone) {
+	public int delete(Zone Zone) 
+	{
 		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
 
 		// connexion a la base de donnees
-		try {
+		try 
+		{
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			// preparation de l'instruction SQL, le ? represente la valeur de l'ID
-			// a communiquer dans la suppression.
-			// le getter permet de recuperer la valeur de l'ID du fournisseur
-			System.out.println("Nom de la zone a supprimer :");
-			String idDelete= lectureClavier.nextLine();
+			// preparation de l'instruction SQL, le ? represente la valeur du numZone à supprimer
+			// le getter permet de recuperer la valeur dun numZone de l'Zone
 			ps = con.prepareStatement("DELETE FROM Zone WHERE nomZone = ?");
-			ps.setString(1, idDelete);
+			ps.setString(1, Zone.getNomZone());
 
 			// Execution de la requete
 			returnValue = ps.executeUpdate();
-
-		} catch (Exception e) {
-			if (e.getMessage().contains("ORA-02292"))
-				System.out.println("suppression impossible");
+		}
+		catch (Exception e) 
+			{
+			if (e.getMessage().contains("ORA-02292"))	// si l'Zone n'existe deja dans la bdd
+			{
+				System.out.println("Cet Zone n'a pas pu être supprimé !");
+			}
 			else
 				e.printStackTrace();
-		} finally {
+		} 
+		finally 
+		{
 			// fermeture du preparedStatement et de la connexion
-			try {
-				if (ps != null) {
+			try 
+			{
+				if (ps != null) 
+				{
 					ps.close();
 				}
-			} catch (Exception ignore) {
+			} 
+			catch (Exception ignore)
+			{
 			}
-			try {
-				if (con != null) {
+			try 
+			{
+				if (con != null) 
+				{
 					con.close();
 				}
-			} catch (Exception ignore) {
+			} 
+			catch (Exception ignore) 
+			{
 			}
 		}
 		return returnValue;
