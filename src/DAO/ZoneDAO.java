@@ -1,7 +1,8 @@
 package DAO;
 
 import Lot1.*;
-import java.util.Scanner;
+
+import java.util.*;
 import java.sql.*;
 
 public class ZoneDAO extends ConnexionDAO {
@@ -10,7 +11,7 @@ public class ZoneDAO extends ConnexionDAO {
 		super();
 	}
 	
-	public int addZone(Zone zone ) {
+	public int addZone(Zone zone) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
@@ -103,6 +104,105 @@ public class ZoneDAO extends ConnexionDAO {
 			} 
 			catch (Exception ignore) 
 			{
+			}
+		}
+		return returnValue;
+	}
+	
+	public Zone get(int nomZone) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Zone returnValue = null;
+
+		// connexion a la base de donnees
+		try {
+
+			con = DriverManager.getConnection(URL, LOGIN, PASS);
+			ps = con.prepareStatement("SELECT * FROM Zone WHERE nomZone = ?");
+			ps.setInt(1, nomZone);
+
+			// on execute la requete
+			// rs contient un pointeur situe juste avant la premiere ligne retournee
+			rs = ps.executeQuery();
+			// passe a la premiere (et unique) ligne retournee
+			if (rs.next()) {
+				returnValue = new Zone(rs.getString("nomZone"),
+									       rs.getInt("placeParking"),
+									       rs.getString("plageHoraire"),
+									       rs.getString("typeZone"),
+									       rs.getInt("nbrPlaceReserve"));
+			}
+		} catch (Exception ee) {
+			ee.printStackTrace();
+		} finally {
+			// fermeture du ResultSet, du PreparedStatement et de la Connexion
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception ignore) {
+			}
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (Exception ignore) {
+			}
+			try {
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception ignore) {
+			}
+		}
+		return returnValue;
+	}
+
+	/**
+	 * Permet de recuperer tous les fournisseurs stockes dans la table fournisseur
+	 * 
+	 * @return une ArrayList de fournisseur
+	 */
+	public ArrayList<Zone> getList() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<Zone> returnValue = new ArrayList<Zone>();
+
+		// connexion a la base de donnees
+		try {
+			con = DriverManager.getConnection(URL, LOGIN, PASS);
+			ps = con.prepareStatement("SELECT * FROM Zone ORDER BY idZone");
+
+			// on execute la requete
+			rs = ps.executeQuery();
+			// on parcourt les lignes du resultat
+			while (rs.next()) {
+				returnValue.add(new Zone(rs.getString("nomZone"),
+					       rs.getInt("placeParking"),
+					       rs.getString("plageHoraire"),
+					       rs.getString("typeZone"),
+					       rs.getInt("nbrPlaceReserve")));
+			}
+		} catch (Exception ee) {
+			ee.printStackTrace();
+		} finally {
+			// fermeture du rs, du preparedStatement et de la connexion
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ignore) {
+			}
+			try {
+				if (ps != null)
+					ps.close();
+			} catch (Exception ignore) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ignore) {
 			}
 		}
 		return returnValue;
