@@ -79,5 +79,14 @@ public class ZoneGUI {
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Armada.jpg"));
 		lblNewLabel.setBounds(243, 23, 183, 123);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnListeDesZones = new JButton("Liste des zones");
+		btnListeDesZones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Bouton liste des zones
+			}
+		});
+		btnListeDesZones.setBounds(171, 209, 134, 44);
+		frame.getContentPane().add(btnListeDesZones);
 	}
 }

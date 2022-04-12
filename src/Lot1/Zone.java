@@ -1,12 +1,12 @@
 package Lot1;
 
 public class Zone {
-	String nomZone; //numéro de la zone
-	int placeParking;
-	String plageHoraire; //matin ou soir
-	String typeZone; //locataire ou service public
-	int nbrPlaceReserve;
-	boolean plein; //parking plein ou non
+	private String nomZone; //numéro de la zone
+	private int placeParking;
+	private String plageHoraire; //matin ou soir
+	private String typeZone; //locataire ou service public
+	private int nbrPlaceReserve;
+	
 	public Zone(String nomZone, int placeParking,String plageHoraire,String typeZone,int nbrPlaceReserve) {
 		this.nomZone=nomZone;
 		this.placeParking=placeParking;
