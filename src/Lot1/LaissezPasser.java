@@ -24,5 +24,69 @@ public class LaissezPasser {
 		this.archive=archive;
 		
 	}
+
+	public String getNomLP() {
+		return nomLP;
+	}
+
+	public void setNomLP(String nomLP) {
+		this.nomLP = nomLP;
+	}
+
+	public String getPrenomLP() {
+		return prenomLP;
+	}
+
+	public void setPrenomLP(String prenomLP) {
+		this.prenomLP = prenomLP;
+	}
+
+	public String getMetierLP() {
+		return metierLP;
+	}
+
+	public void setMetierLP(String metierLP) {
+		this.metierLP = metierLP;
+	}
+
+	public String getEntrepriseLP() {
+		return entrepriseLP;
+	}
+
+	public void setEntrepriseLP(String entrepriseLP) {
+		this.entrepriseLP = entrepriseLP;
+	}
+
+	public ArrayList<Vehicule> getListeVehicule() {
+		return listeVehicule;
+	}
+
+	public void setListeVehicule(ArrayList<Vehicule> listeVehicule) {
+		this.listeVehicule = listeVehicule;
+	}
+
+	public String getPlageHoraireLP() {
+		return plageHoraireLP;
+	}
+
+	public void setPlageHoraireLP(String plageHoraireLP) {
+		this.plageHoraireLP = plageHoraireLP;
+	}
+
+	public boolean isValide() {
+		return valide;
+	}
+
+	public void setValide(boolean valide) {
+		this.valide = valide;
+	}
+
+	public boolean isArchive() {
+		return archive;
+	}
+
+	public void setArchive(boolean archive) {
+		this.archive = archive;
+	}
 	
 }
