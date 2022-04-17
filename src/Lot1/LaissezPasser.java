@@ -4,6 +4,7 @@ import java.util.*;
 import Lot1.*;
 
 public class LaissezPasser {
+	private int idLaissezPasser;
 	private String nomLP;
 	private String prenomLP;
 	private String metierLP;
@@ -87,6 +88,10 @@ public class LaissezPasser {
 
 	public void setArchive(boolean archive) {
 		this.archive = archive;
+	}
+
+	public int getIdLaissezPasser() {
+		return idLaissezPasser;
 	}
 	
 }

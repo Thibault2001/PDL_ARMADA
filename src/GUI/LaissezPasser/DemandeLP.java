@@ -145,7 +145,7 @@ public class DemandeLP {
 					ArrayList <Vehicule> listeVehicule =new ArrayList <Vehicule> ();
 					listeVehicule.add(vehicule);
 					LaissezPasser laissezPasser = new LaissezPasser (textFieldNom.getText(),textFieldPrenom.getText(), textFieldMetier.getText(), textFieldEntreprise.getText(), listeVehicule, textFieldPlageHoraire.getText(), false, false);
-					// faire la méthode ajouter un laisser passez new LaissezPasser.ajouterLaissezPasser();
+					new LaissezPasserDAO().addLaissezPasser(laissezPasser);
 					
 					//nextpage.main(null);
 					frameDemandeLP.dispose();
