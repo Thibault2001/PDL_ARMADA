@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 
 public class ZoneGUI {
 
-	private JFrame frame;
+	private JFrame frame; 
 
 	/**
 	 * Launch the application.
