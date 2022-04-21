@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import GUI.Zone.SupprimerZone;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -52,7 +55,7 @@ public class MenuOrganisateur {
 		
 		JButton GererLP = new JButton("G\u00E9rer les laissez-passer");
 		GererLP.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		GererLP.setBounds(21, 95, 187, 44);
+		GererLP.setBounds(21, 95, 210, 44);
 		frame.getContentPane().add(GererLP);
 		
 		JButton GererInscription = new JButton("G\u00E9rer les Inscriptions");
@@ -61,7 +64,7 @@ public class MenuOrganisateur {
 			}
 		});
 		GererInscription.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		GererInscription.setBounds(218, 95, 187, 44);
+		GererInscription.setBounds(21, 171, 187, 44);
 		frame.getContentPane().add(GererInscription);
 		
 		JButton GererZone = new JButton("G\u00E9rer les Zones");
@@ -70,10 +73,17 @@ public class MenuOrganisateur {
 			}
 		});
 		GererZone.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		GererZone.setBounds(21, 171, 187, 44);
+		GererZone.setBounds(244, 95, 161, 44);
 		frame.getContentPane().add(GererZone);
 		
 		JButton GererParticipant = new JButton("G\u00E9rer les Participants");
+		GererParticipant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						GererParticipant nextpage = new GererParticipant();
+						nextpage.main(null);
+						frame.dispose();
+			}
+		});
 		GererParticipant.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GererParticipant.setBounds(218, 171, 187, 44);
 		frame.getContentPane().add(GererParticipant);
