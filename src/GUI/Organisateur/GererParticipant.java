@@ -50,8 +50,18 @@ public class GererParticipant {
 		
 		JButton ConsulterListeParticipant = new JButton("Consulter la liste des participants");
 		ConsulterListeParticipant.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ConsulterListeParticipant.setBounds(99, 182, 251, 47);
+		ConsulterListeParticipant.setBounds(98, 188, 270, 47);
 		frame.getContentPane().add(ConsulterListeParticipant);
+		
+		JButton btnModifierUnParticipant = new JButton("Modifier un participant");
+		btnModifierUnParticipant.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnModifierUnParticipant.setBounds(126, 74, 200, 47);
+		frame.getContentPane().add(btnModifierUnParticipant);
+		
+		JButton btnSupprimerUnParticipant = new JButton("Supprimer un participant");
+		btnSupprimerUnParticipant.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnSupprimerUnParticipant.setBounds(114, 131, 238, 47);
+		frame.getContentPane().add(btnSupprimerUnParticipant);
 	}
 
 }
