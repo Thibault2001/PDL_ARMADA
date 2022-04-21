@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Organisateur;
 
 import java.awt.EventQueue;
 

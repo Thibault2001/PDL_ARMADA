@@ -1,4 +1,4 @@
-package GUI.Participant;
+package GUI.Organisateur;
 
 import java.awt.EventQueue;
 
@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 
-public class MenuParticipant {
+public class GererParticipant {
 
 	private JFrame frame;
 
@@ -18,7 +18,7 @@ public class MenuParticipant {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenuParticipant window = new MenuParticipant();
+					GererParticipant window = new GererParticipant();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class MenuParticipant {
 	/**
 	 * Create the application.
 	 */
-	public MenuParticipant() {
+	public GererParticipant() {
 		initialize();
 	}
 
@@ -43,15 +43,15 @@ public class MenuParticipant {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel MenuParticipant = new JLabel("Menu Participant");
-		MenuParticipant.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		MenuParticipant.setBounds(92, 21, 313, 63);
-		frame.getContentPane().add(MenuParticipant);
+		JLabel GererParticipant = new JLabel("G\u00E9rer les Participants");
+		GererParticipant.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		GererParticipant.setBounds(70, 10, 356, 54);
+		frame.getContentPane().add(GererParticipant);
 		
-		JButton LP = new JButton("Laissez-Passer");
-		LP.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		LP.setBounds(139, 118, 150, 55);
-		frame.getContentPane().add(LP);
+		JButton ConsulterListeParticipant = new JButton("Consulter la liste des participants");
+		ConsulterListeParticipant.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		ConsulterListeParticipant.setBounds(99, 182, 251, 47);
+		frame.getContentPane().add(ConsulterListeParticipant);
 	}
 
 }
