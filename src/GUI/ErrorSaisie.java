@@ -11,6 +11,7 @@ import GUI.Zone.ZoneGUI;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class ErrorSaisie {
 
@@ -49,7 +50,8 @@ public class ErrorSaisie {
 		frameErrorSaisie.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Erreur de saisie !\r\n");
-		lblNewLabel.setBounds(267, 10, 91, 22);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(250, 10, 218, 84);
 		frameErrorSaisie.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
@@ -58,7 +60,8 @@ public class ErrorSaisie {
 		frameErrorSaisie.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Veuillez v\u00E9rifier votre saisie !!");
-		lblNewLabel_2.setBounds(250, 106, 142, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(219, 68, 207, 105);
 		frameErrorSaisie.getContentPane().add(lblNewLabel_2);
 		
 		JButton btnOk = new JButton("Ok");
