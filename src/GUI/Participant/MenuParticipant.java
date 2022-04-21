@@ -1,12 +1,14 @@
 package GUI.Participant;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import GUI.LaissezPasser.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 public class MenuParticipant {
 
 	private JFrame frame;
@@ -49,6 +51,13 @@ public class MenuParticipant {
 		frame.getContentPane().add(MenuParticipant);
 		
 		JButton LP = new JButton("Laissez-Passer");
+		LP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LaissezPasserGUI nextpage = new LaissezPasserGUI();
+				nextpage.main(null);
+				frame.dispose();
+			}
+		});
 		LP.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		LP.setBounds(139, 118, 150, 55);
 		frame.getContentPane().add(LP);
