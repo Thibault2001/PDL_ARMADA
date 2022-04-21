@@ -22,6 +22,7 @@ public class DemandeLP {
 	private JTextField textFieldVehiculeModele;
 	private JTextField textFieldVehiculeLongueur;
 	private JTextField textFieldVehiculeLargeur;
+	private JButton btnRetour;
 
 	/**
 	 * Launch the application.
@@ -137,6 +138,7 @@ public class DemandeLP {
 		frameDemandeLP.getContentPane().add(textFieldVehiculeLargeur);
 		
 		JButton btnValider = new JButton("Valider\r\n");
+		btnValider.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnValider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(textFieldVehiculeImmatriculation.getText().length()>0 && textFieldPlageHoraire.getText().length()>0)
@@ -160,8 +162,20 @@ public class DemandeLP {
 				}
 			}
 		});
-		btnValider.setBounds(318, 232, 85, 21);
+		btnValider.setBounds(318, 232, 96, 21);
 		frameDemandeLP.getContentPane().add(btnValider);
+		
+		btnRetour = new JButton("Retour");
+		btnRetour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LaissezPasserGUI nextpage = new LaissezPasserGUI();
+				nextpage.main(null);
+				frameDemandeLP.dispose();
+			}
+		});
+		btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnRetour.setBounds(318, 197, 96, 21);
+		frameDemandeLP.getContentPane().add(btnRetour);
 		
 	}
 }
