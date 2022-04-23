@@ -12,10 +12,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-import GUI.LaissezPasser.*;
 import GUI.Organisateur.*;
 import GUI.Participant.*;
-import GUI.Zone.*;
 import DAO.CompteDAO;
 import DAO.OrganisateurDAO;
 import DAO.PersonneMoraleDAO;

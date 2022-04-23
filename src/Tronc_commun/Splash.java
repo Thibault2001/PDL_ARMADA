@@ -66,15 +66,15 @@ public class Splash {
            //Pour définir le Splash au milieu de l'écran'
                 Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
                 frame.setLocation((screen.width - frame.getSize().width)/2,(screen.height - frame.getSize().height)/2);
-             // pour que ca ai vraiement l air d un splash :p
+             // pour que ca ait vraiement l air d un splash
         	frame.setUndecorated(true);
                 frame.setVisible(true);
 	frame.setResizable(true);
-                //Retaillage de la barre pour qu elle corresponde a la taille de la frame
+                //Taille de la barre pour qu'elle corresponde a la taille de la frame
 	progress.setBounds(new Rectangle(10, 226, 420, 17));
 	
 	JLabel lblNewLabel = new JLabel("New label");
-	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\hp\\eclipse-workspace\\Armada_2023\\Images Splash Screen\\armada logo.png"));
+	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\armada logo.png"));
 	lblNewLabel.setBounds(0, 0, 440, 250);
 	panel.add(lblNewLabel);
 	// Création de thread pour afficher la progression de la barre
@@ -127,7 +127,7 @@ public class Progression  implements Runnable
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Splash window = new  Splash(null,"Chargement en cours...Veuillez patienter","C:\\Users\\hp\\eclipse-workspace\\Armada_2023\\Images Splash Screen\\armada icon real.png");//Path de l'image qu'on veut ,message,ainsi que l icone de la fenetre
+					Splash window = new  Splash(null,"Chargement en cours...Veuillez patienter","C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\armada icon real.png");//Path de l'image qu'on veut ,message,ainsi que l icone de la fenetre
 					//window.frame.se
 					window.frame.setVisible(true);
 				} catch (Exception e) {
