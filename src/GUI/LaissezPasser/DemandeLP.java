@@ -56,12 +56,14 @@ public class DemandeLP {
 		frameDemandeLP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameDemandeLP.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Demande de laissez-passer\r\n");
-		lblNewLabel.setBounds(173, 34, 151, 31);
-		frameDemandeLP.getContentPane().add(lblNewLabel);
+		JLabel DemandeLP = new JLabel("Demande de laissez-passer\r\n");
+		DemandeLP.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		DemandeLP.setBounds(51, 10, 414, 62);
+		frameDemandeLP.getContentPane().add(DemandeLP);
 		
 		JLabel lblNewLabel_1 = new JLabel("Veuillez remplir les champs ci-dessous :");
-		lblNewLabel_1.setBounds(34, 70, 219, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(34, 70, 351, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_1);
 		
 		textFieldNom = new JTextField();
@@ -119,7 +121,7 @@ public class DemandeLP {
 		frameDemandeLP.getContentPane().add(textFieldPlageHoraire);
 		
 		JLabel lblNewLabel_3 = new JLabel("* : champ obligatoirement non vide");
-		lblNewLabel_3.setBounds(34, 250, 189, 13);
+		lblNewLabel_3.setBounds(34, 250, 237, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_3);
 		
 		textFieldVehiculeModele = new JTextField();
