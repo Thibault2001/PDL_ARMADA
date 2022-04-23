@@ -8,52 +8,51 @@ import javax.swing.JOptionPane;
 import Tronc_commun.*;
 
 /**
- * Classe d'acces aux donnees contenues dans la table incription
+ * Classe d'acces aux donnees contenues dans la table personne morale
  * 
  * @author SERAFINI Thibault & TEGUE Elisée
  * */
-public class InscriptionDAO extends ConnexionDAO {
+public class CompteDAO extends ConnexionDAO {
 	/**
 	 * Constructor
 	 * 
 	 */
-	public InscriptionDAO() {
+	public CompteDAO() {
 		super();
 	}
 
 	/**
-	 * Permet l'ajout d'une demande d'inscription dans la table Inscription.
+	 * Permet l'ajout d'une personne morale dans la table personne morale
 	 * Le mode est auto-commit par defaut : chaque insertion est validee
 	 * 
-	 * @param inscription l'inscription a ajouter
+	 * @param participant le participant dont la personne morale est à ajouter
 	 * @return retourne le nombre de lignes ajoutees dans la table
 	 */
-	public int add(Inscription inscription) {
+	public int add(Compte compte) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
 
 		// connexion a la base de donnees
 		try {
+
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
 			// preparation de l'instruction SQL, chaque ? represente une valeur
 			// a communiquer dans l'insertion.
 			// les getters permettent de recuperer les valeurs des attributs souhaites
-			ps = con.prepareStatement("INSERT INTO inscription (idInscription, adresseMail, nomInscription, prenomInscription, activiteInscription) VALUES (IDINSCRIPTION_SEQ.nextVal, ?, ?, ?, ?)");
-			ps.setString(1, inscription.getParticipant().getPersonneMorale().getEmail());
-			ps.setString(2, inscription.getParticipant().getPersonneMorale().getName());
-			ps.setString(3, inscription.getParticipant().getPersonneMorale().getFirstName());
-			ps.setString(4, inscription.getParticipant().getProfile());
-
+			ps = con.prepareStatement("INSERT INTO compte (idcompte, motdepasse, mailcompte) VALUES (IDCOMPTE_SEQ.nextVal, ?, ?)");
+			ps.setString(1, compte.getIdentifiant());
+			ps.setString(2, compte.getMdp());
+			
 			// Execution de la requete
 			returnValue = ps.executeUpdate();
 
 		} catch (Exception e) {
 			if (e.getMessage().contains("ORA-00001"))
-				{
+			{
 				JFrame frame = new JFrame();	
-				JOptionPane.showMessageDialog(frame, "Cette inscription existe déjà. Ajout impossible !", "Erreur", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "Ce compte existe déjà. Ajout impossible !", "Erreur", JOptionPane.WARNING_MESSAGE);
 				}
 			else
 				e.printStackTrace();
@@ -76,14 +75,13 @@ public class InscriptionDAO extends ConnexionDAO {
 	}
 
 	/**
-	 * Permet de modifier une demande d'inscription dans la table inscription
+	 * Permet de modifier un fournisseur dans la table supplier.
 	 * Le mode est auto-commit par defaut : chaque modification est validee
 	 * 
-	 * @param inscription l'inscription a modifier
-	 * @param estValidee decision de l'organisateur
+	 * @param supplier le fournisseur a modifier
 	 * @return retourne le nombre de lignes modifiees dans la table
 	 */
-	public int update(Inscription inscription) {
+	/*public int update(Participant participant) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
@@ -96,17 +94,15 @@ public class InscriptionDAO extends ConnexionDAO {
 			// preparation de l'instruction SQL, chaque ? represente une valeur
 			// a communiquer dans la modification.
 			// les getters permettent de recuperer les valeurs des attributs souhaites
-			ps = con.prepareStatement("UPDATE inscription set adresseMail=?, nomInscription=?, prenomInscription=?, activiteInscription=? WHERE idInscription = ?");
-			ps.setString(1, inscription.getParticipant().getPersonneMorale().getEmail());
-			ps.setString(2, inscription.getParticipant().getPersonneMorale().getName());
-			ps.setString(3, inscription.getParticipant().getPersonneMorale().getFirstName());
-			ps.setString(4, inscription.getParticipant().getProfile());
-			ps.setLong(5, inscription.getIdInsc());
-			
+			ps = con.prepareStatement("UPDATE supplier set adresseMail = ?, nomInscription = ?, email = ? WHERE id = ?");
+			ps.setString(1, supplier.getName());
+			ps.setString(2, supplier.getAddress());
+			ps.setString(3, supplier.getEmail());
+			ps.setInt(4, supplier.getId());
 
 			// Execution de la requete
 			returnValue = ps.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -125,16 +121,17 @@ public class InscriptionDAO extends ConnexionDAO {
 			}
 		}
 		return returnValue;
-	}
+	}*/
 
 	/**
-	 * Permet de supprimer une demande d'inscription dans la table inscription.
+	 * Permet de supprimer un fournisseur dans la table supplier.
+	 * Si ce dernier possede des articles, la suppression n'a pas lieu.
 	 * Le mode est auto-commit par defaut : chaque suppression est validee
 	 * 
-	 * @param inscription la demande d'inscription a supprimer
+	 * @param supplier le fournisseur a supprimer
 	 * @return retourne le nombre de lignes supprimees dans la table
 	 */
-	public int delete(Inscription inscription) {
+	/*public int delete(Supplier supplier) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int returnValue = 0;
@@ -147,18 +144,16 @@ public class InscriptionDAO extends ConnexionDAO {
 			// preparation de l'instruction SQL, le ? represente la valeur de l'ID
 			// a communiquer dans la suppression.
 			// le getter permet de recuperer la valeur de l'ID du fournisseur
-			ps = con.prepareStatement("DELETE FROM inscription WHERE adressemail = ?");
-			ps.setString(1, inscription.getParticipant().getPersonneMorale().getEmail());
+			ps = con.prepareStatement("DELETE FROM supplier WHERE id = ?");
+			ps.setInt(1, supplier.getId());
 
 			// Execution de la requete
 			returnValue = ps.executeUpdate();
 
 		} catch (Exception e) {
 			if (e.getMessage().contains("ORA-02292"))
-			{
-				JFrame frame = new JFrame();	
-				JOptionPane.showMessageDialog(frame, "Suppression impossible !", "Erreur", JOptionPane.WARNING_MESSAGE);
-			}
+				System.out.println("Ce fournisseur possede des articles, suppression impossible !"
+						         + " Supprimer d'abord ses articles ou utiiser la méthode de suppression avec articles.");
 			else
 				e.printStackTrace();
 		} finally {
@@ -177,7 +172,7 @@ public class InscriptionDAO extends ConnexionDAO {
 			}
 		}
 		return returnValue;
-	}
+	}//
 
 
 	/**
@@ -187,28 +182,26 @@ public class InscriptionDAO extends ConnexionDAO {
 	 * @return le fournisseur trouve;
 	 * 			null si aucun fournisseur ne correspond a cette reference
 	 */
-	/*public Supplier get(int id) {
+	public Compte get(String identifiant) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		Supplier returnValue = null;
+		Compte returnValue = null;
 
 		// connexion a la base de donnees
 		try {
 
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("SELECT * FROM supplier WHERE id = ?");
-			ps.setInt(1, id);
+			ps = con.prepareStatement("SELECT * FROM compte WHERE mailcompte = ?");
+			ps.setString(1, identifiant);
 
 			// on execute la requete
 			// rs contient un pointeur situe juste avant la premiere ligne retournee
 			rs = ps.executeQuery();
 			// passe a la premiere (et unique) ligne retournee
 			if (rs.next()) {
-				returnValue = new Supplier(rs.getInt("id"),
-									       rs.getString("name"),
-									       rs.getString("address"),
-									       rs.getString("email"));
+				returnValue = new Compte(rs.getString("mailcompte"),
+									       rs.getString("motdepasse"));					       
 			}
 		} catch (Exception ee) {
 			ee.printStackTrace();
@@ -234,33 +227,37 @@ public class InscriptionDAO extends ConnexionDAO {
 			}
 		}
 		return returnValue;
-	}*/
+	}
 
 	/**
-	 * Permet de recuperer la reference d'une demande d'inscription a partir de l'interface graphique
-	 * @param  email l'adresse mail de la personne morale rattachee a l'inscription
-	 * @return reference la reference de l'inscription a recuperer 
-	 * 			null si aucune inscription ne correspond a cet email
+	 * Permet de connecter un compte
+	 * 
+	 * @param id l'adresse mail du compte
+	 * @param mdp le mot de passe du compte
+	 * @return le compte qui a ete connecte
 	 */
-	public int getId(String email) {
+	public Compte login(String id, String mdp)
+	{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		int returnValue = 0;
+		Compte returnValue = null;
 
 		// connexion a la base de donnees
 		try {
 
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("SELECT idinscription FROM inscription WHERE adressemail = ?");
-			ps.setString(1, email);
+			ps = con.prepareStatement("SELECT * FROM compte WHERE mailcompte = ? AND motdepasse = ?");
+			ps.setString(1, id);
+			ps.setString(2, mdp);
 
 			// on execute la requete
 			// rs contient un pointeur situe juste avant la premiere ligne retournee
 			rs = ps.executeQuery();
 			// passe a la premiere (et unique) ligne retournee
 			if (rs.next()) {
-				returnValue = rs.getInt("idinscription");
+				returnValue = new Compte(rs.getString("mailcompte"),
+									       rs.getString("motdepasse"));					       
 			}
 		} catch (Exception ee) {
 			ee.printStackTrace();
@@ -288,28 +285,27 @@ public class InscriptionDAO extends ConnexionDAO {
 		return returnValue;
 	}
 	
-	
 	/**
 	 * Permet de recuperer tous les fournisseurs stockes dans la table fournisseur
 	 * 
 	 * @return une ArrayList de fournisseur
 	 */
-	public static ArrayList<Inscription> getList() {
+	public static ArrayList<PersonneMorale> getList() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		ArrayList<Inscription> returnValue = new ArrayList<Inscription>();
+		ArrayList<PersonneMorale> returnValue = new ArrayList<PersonneMorale>();
 
 		// connexion a la base de donnees
 		try {
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("SELECT * FROM inscription ORDER BY IDINSCRIPTION");
-			//ps.setString(1, null);			//selectionne uniquement les inscriptions non validées
+			ps = con.prepareStatement("SELECT * FROM personneMorale ORDER BY IDPM");
+
 			// on execute la requete
 			rs = ps.executeQuery();
 			// on parcourt les lignes du resultat
 			while (rs.next()) {
-				returnValue.add(new Inscription(rs.getInt("IDINSCRIPTION"), new Participant(rs.getInt("IDINSCRIPTION"), rs.getString("ACTIVITEINSCRIPTION"), new PersonneMorale(rs.getInt("IDINSCRIPTION"), rs.getString("NOMINSCRIPTION"), rs.getString("PRENOMINSCRIPTION"),null,null,rs.getString("ADRESSEMAIL")))));
+				returnValue.add(new PersonneMorale(rs.getInt("IDPM"), rs.getString("NOMPM"),rs.getString("PRENOMPM"), rs.getString("SEXEPM"), rs.getString("DATEDENAISSANCEPM"),rs.getString("EMAILPM")));
 			}
 		} catch (Exception ee) {
 			ee.printStackTrace();
@@ -337,51 +333,59 @@ public class InscriptionDAO extends ConnexionDAO {
 	// main permettant de tester la classe (pour des test unitaires)
 	public static void main(String[] args) throws SQLException {
 		int returnValue;
-		InscriptionDAO inscriptionDAO = new InscriptionDAO();
+		CompteDAO compteDAO = new CompteDAO();
 		/*// test du constructeur
-		PersonneMorale pers1 = new PersonneMorale(0, "Duc", "Evarice", "M","15/02/1960","evarduc@gmail.com");
-		//PersonneMorale pers2 = new PersonneMorale(3, "Dupuit", "Evris", "M","15/02/1960", "evrisdup@gmail.com");
-		//PersonneMorale pers3 = new PersonneMorale(4, "Dupont", "Eved", "M", "15/02/1960","eveddup@gmail.com");
-		Participant p1 = new Participant(0, "bateau", pers1);
-		//Participant p2 = new Participant(5, "Famille d'acceuil", pers2);
-		//Participant p3 = new Participant(6, "Entreprise", pers3);
-		Inscription i1 = new Inscription(0, p1);
-		//Inscription i2 = new Inscription(5, p2);
-		//Inscription i3 = new Inscription(6, p3);
+		Compte c1 = new Compte("15-09-1995", "ninon.car@gmail.com");
+		Compte c2 = new Compte("14-09-1995", "pat.jul@gmail.com");
+		
+		//PersonneMorale pm2 = new PersonneMorale(0, "Dupont", "Pauline", "F","20/02/1992", "dutp@test.cm");
+		//PersonneMorale pm3 = new PersonneMorale(0, "Dupuis", "Pau", "M", "05/02/2005","dupp@test.cm");
+		
+		//Participant p1 = new Participant(1, "bateau", pm1);
+		//Participant p2 = new Participant(2, "Famille d'acceuil", pm2);
+		//Participant p3 = new Participant(3, "Entreprise", pm3);
+		
 		// test de la methode add
-		returnValue = inscriptionDAO.add(i1);
-		System.out.println(returnValue + " inscription ajoutee");
-		//returnValue = inscriptionDAO.add(i2);
-		//System.out.println(returnValue + " inscription ajoutee");
-		//returnValue = inscriptionDAO.add(i3);
-		//System.out.println(returnValue + " inscription ajoutee");
+		returnValue = compteDAO.add(c1);
+		System.out.println(returnValue + " compte ajoute");
+		returnValue = compteDAO.add(c2);
+		System.out.println(returnValue + " compte ajoute");
+		//returnValue = personneMoraleDAO.add(p2);
+		//System.out.println(returnValue + " personne morale ajoutee");
+		//returnValue = personneMoraleDAO.add(p3);
+		//System.out.println(returnValue + " personne morale ajoutee");
 		System.out.println();*/
 		
-		//test de la methode update
-		/*PersonneMorale pers1 = new PersonneMorale(0, "BOB", "Christine", "F","15/02/1960","ctn.bob@gmail.com");
-		Participant p1 = new Participant(0, "Famille d'accueil", pers1);
-		Inscription i1 = new Inscription(2, p1);
-		returnValue = inscriptionDAO.update(i1);
-		System.out.println(returnValue);*/
-		// test de la methode get		
-		/*int id = inscriptionDAO.getId("marcelh@gmail.com");
+		/*// test de la methode get
+		Supplier sg = supplierDAO.get(1);
 		// appel implicite de la methode toString de la classe Object (a eviter)
-		System.out.println(id);
-		//System.out.println();
-	
-		// test de la methode getList
-		/*ArrayList<Inscription> list = inscriptionDAO.getList();
-		for (Inscription i : list) {
-			// appel explicite de la methode toString de la classe Object (a privilegier)
-			System.out.println(i.toString());
-		}
-		System.out.println();
-		//test de la methode delete
-		returnValue = 0;
-		if (list.size() > 0)
-			returnValue = inscriptionDAO.delete(list.get(1));
-		System.out.println(returnValue + " demande d'inscription supprime");*/
+		System.out.println(sg);
+		System.out.println();*/
 		
+		/*// test de la methode get
+		CompteDAO compteDAO = new CompteDAO();
+		Compte compte = compteDAO.get("ninon.car@gmail.com");
+		System.out.println(compte);
+		//System.out.println();*/
+		
+		// test de la methode login
+		Compte compte = compteDAO.login("nono@gmail.com", "1995-10-18");
+		System.out.println(compte);
 		//System.out.println();
-	}//
+		
+		// test de la methode getList
+		/*ArrayList<PersonneMorale> list =PersonneMoraleDAO.getList();
+		for (PersonneMorale pm : list) {
+			// appel explicite de la methode toString de la classe Object (a privilegier)
+			System.out.println(pm.toString());
+		}
+		System.out.println();*/
+		//test de la methode delete
+		/*returnValue = 0;
+		if (list.size() > 0)
+			returnValue = supplierDAO.delete(list.get(0));
+		System.out.println(returnValue + " fournisseur supprime");
+		
+		System.out.println();*/
+	}
 }

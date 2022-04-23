@@ -72,27 +72,27 @@ public class DemandeLP {
 		textFieldNom.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nom : \r\n");
-		lblNewLabel_2.setBounds(34, 109, 45, 13);
+		lblNewLabel_2.setBounds(10, 109, 45, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Pr\u00E9nom :\r\n");
-		lblNewLabel_2_1.setBounds(34, 132, 58, 13);
+		lblNewLabel_2_1.setBounds(10, 132, 58, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("M\u00E9tier :");
-		lblNewLabel_2_2.setBounds(34, 155, 45, 13);
+		lblNewLabel_2_2.setBounds(10, 155, 45, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2_3 = new JLabel("Entreprise :\r\n");
-		lblNewLabel_2_3.setBounds(34, 178, 45, 13);
+		lblNewLabel_2_3.setBounds(10, 178, 140, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2_3);
 		
-		JLabel lblNewLabel_2_4 = new JLabel("*V\u00E9hicule immatriculation/modele/longueur/largeur");
-		lblNewLabel_2_4.setBounds(34, 201, 45, 13);
+		JLabel lblNewLabel_2_4 = new JLabel("*V\u00E9hicule :");
+		lblNewLabel_2_4.setBounds(10, 201, 89, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2_4);
 		
 		JLabel lblNewLabel_2_5 = new JLabel("*Plage horaire (matin et/ou soir) :");
-		lblNewLabel_2_5.setBounds(34, 224, 45, 13);
+		lblNewLabel_2_5.setBounds(10, 224, 45, 13);
 		frameDemandeLP.getContentPane().add(lblNewLabel_2_5);
 		
 		textFieldPrenom = new JTextField();
@@ -148,10 +148,12 @@ public class DemandeLP {
 					Vehicule vehicule =new Vehicule (textFieldVehiculeImmatriculation.getText(), textFieldVehiculeModele.getText(), Double.parseDouble(textFieldVehiculeLongueur.getText()), Double.parseDouble(textFieldVehiculeLargeur.getText()));
 					ArrayList <Vehicule> listeVehicule =new ArrayList <Vehicule> ();
 					listeVehicule.add(vehicule);
+					new LaissezPasserDAO().addVehicule(vehicule);
 					LaissezPasser laissezPasser = new LaissezPasser (textFieldNom.getText(),textFieldPrenom.getText(), textFieldMetier.getText(), textFieldEntreprise.getText(), listeVehicule, textFieldPlageHoraire.getText(), false, false);
 					new LaissezPasserDAO().addLaissezPasser(laissezPasser);
 					
-					//nextpage.main(null);
+					LaissezPasserGUI nextpage = new LaissezPasserGUI();
+					nextpage.main(null);
 					frameDemandeLP.dispose();
 				}
 				else

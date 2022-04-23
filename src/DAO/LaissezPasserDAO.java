@@ -22,7 +22,7 @@ public class LaissezPasserDAO extends ConnexionDAO {
 
 			// tentative de connexion
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("INSERT INTO laissezPasser (idLP, nomLP, prenomLP, entrepriseLP, plageHoraireLP, valide, archive) VALUES (IDLAISSEZPASSER_SEQ.nextVal, ? , ? ,? , ?,?,?)");
+			ps = con.prepareStatement("INSERT INTO laissezPasser (idLP, nomLP, prenomLP, entrepriseLP, plageHoraireLP, valide, archive, idVehicule) VALUES (IDLAISSEZPASSER_SEQ.nextVal, ? , ? ,? , ?,?,?,IDVEHICULE_SEQ.nextVal)");
 			ps.setString(1, laissezPasser.getNomLP());
 			ps.setString(2, laissezPasser.getPrenomLP());
 			ps.setString(3, laissezPasser.getEntrepriseLP());

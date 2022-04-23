@@ -1,113 +1,88 @@
 package Tronc_commun;
 
 /**
- * Classe PersonneMorale
- * @param nom
- * @param prenom
- * @param dateDeNaissance
- * @author Lilian
- * @version 1.0
- */
-public class PersonneMorale
-{
-	
-	/**
-	 * Nom de la personne morale
+ * Classe Supplier
+ * @author ESIGELEC - TIC Department
+ * @version 1.2
+ * */
+public class PersonneMorale {
+	/** 
+	 * reference du participant
 	 */
-	private String nom;
-	
+	private int idPM;
 	/**
-	 * Prénom de la personne morale
+	 * nom
 	 */
-	private String prenom;
-	
+	private String name;	
 	/**
-	 * Date de naissance de la personne morale
+	 * prenom
 	 */
-	private String dateDeNaissance;
-	
-	private Adresse adresse = new Adresse();
-	
-	// initialise le constructeur par défaut 
-	public PersonneMorale()
-	{
-		super();
-	}
-	
+	private String firstName;	
 	/**
-	 * Constructeur de la classe PersonneMorale
-	 * @param nom
-	 * @param prenom
-	 * @param dateDeNaissance
+	 * email
 	 */
-	
-	public PersonneMorale(String nom, String prenom, String dateDeNaissance) 
-	{
-		this.nom=nom;
-		this.prenom=prenom;
-		this.dateDeNaissance=dateDeNaissance;
-	}
-	
+	private String email;
 	/**
-	 * getter attribut nom
-	 */
-	public String getNom()
-	{
-		return nom;
-	}
-	
 	/**
-	 * getter attribut prenom
+	 * @param idPM identifiant de la personne morale
+	 * @param name nom 
+	 * @param firstName prenom
+	 * @param email adresse mail
 	 */
-	public String getPrenom() 
-	{
-		return prenom;
+	public PersonneMorale(int idPM, String name, String firstName, String email) {
+		this.idPM = idPM;
+		this.name = name;
+		this.firstName = firstName;
+		this.email = email;
 	}
 	/**
-	 * getter attribut dateDeNaissance
+	 * getter pour l'attribut reference
+	 * @return valeur de la reference fournisseur
 	 */
-	public String getDateDeNaissance() 
-	{
-		return dateDeNaissance;
+	public int getIdPM() {
+		return idPM;
 	}
-	
 	/**
-	 * setter attribut nom
+	 * getter pour l'attribut name
+	 * @return valeur du nom
 	 */
-	public void setNom(String nom) 
-	{
-		this.nom=nom;
+	public String getName() {
+		return name;
+	}
+	/**
+	 * setter pour l'attribut name
+	 * @param name : nouvelle valeur du nom du participant
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * getter pour l'attribut firstName
+	 * @return valeur du prénom du participant
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+	/**
+	 * setter pour l'attribut firstName
+	 * @param address : nouvelle valeur du prénom du participant
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	/**
+	 * getter pour l'attribut email
+	 * @return valeur de l'adresse mail
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * setter pour l'attribut email
+	 * @param email : nouvelle valeur de l'adresse mail
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	/**
-	 * setter attribut prenom
-	 */
-	public void setPrenom(String prenom) 
-	{
-		this.prenom=prenom;
-	}
-	
-	/**
-	 * setter attribut dateDeNaissance
-	 */
-	public void setDateDeNaissance(String dateDeNaissance) 
-	{
-		this.dateDeNaissance=dateDeNaissance;
-	}
-	
-	/**
-	 * Fonction modifier
-	 */
-	public void modifier() 
-	{
-	}
-	
-	/**
-	 * Fonction afficher
-	 */
-	public void afficher() 
-	{
-		adresse.afficher();
-		System.out.println("Nom : "+ nom + "Prénom : " + prenom + "Date de naissance : " + dateDeNaissance);
-	}
 }

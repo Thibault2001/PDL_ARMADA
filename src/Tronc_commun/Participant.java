@@ -1,94 +1,53 @@
 package Tronc_commun;
 
 /**
- * Classe Participant
- * @param profil
- * @param idParticipant
- * @author Romain
- * @version 1.0
- */
+ * Classe Supplier
+ * @author ESIGELEC - TIC Department
+ * @version 1.2
+ * */
+public class Participant {
+	/** 
+	 * reference du participant
+	 */
+	private int id;
+	/**
+	 * profil
+	 */
+	private String profile;	
+	/**
+	 * personneMorale
+	 */
+	private PersonneMorale personneMorale;	
+	/**
+	 * Constructor
+	 * @param id identifiant du participant
+	 * @param profile profil du participant
+	 */
+	public Participant(int id, String profile, PersonneMorale personneMorale) {
+		this.id = id;
+		this.profile = profile;
+		this.personneMorale = personneMorale;
+	}
+	/**
+	 * getter pour l'attribut reference
+	 * @return valeur de la reference du participant
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * getter pour l'attribut name
+	 * @return valeur du nom
+	 */
+	public String getProfile() {
+		return profile;
+	}
+	/**
+	 * setter pour l'attribut profile
+	 * @param profile : nouvelle valeur du nom du fournisseur
+	 */
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
-public class Participant 
-{
-	/**
-	 * profil du participant
-	 */
-	protected String profil;
-	
-	/**
-	 * identifiant du participant
-	 */
-	protected String idParticipant;
-	
-	/**
-	 * personne morale associée au participant
-	 */
-	private PersonneMorale personneMorale = new PersonneMorale();
-	
-	// CONSTRUCTEUR
-	/**
-	 * Constructeur de la classe Participant
-	 * @param profil
-	 * @param idParticipant
-	 */
-	public Participant(String profil, String idParticipant)
-	{
-		this.profil = profil;
-		this.idParticipant = idParticipant;
-	}
-	
-	
-	// GETTER
-	/**
-	 * getter attribut profil
-	 */
-	public String getProfil()
-	{
-		return this.profil;
-	}
-	
-	/**
-	 * getter attribut idParticipant
-	 */
-	public String getIdParticipant()
-	{
-		return this.idParticipant;
-	}
-	
-	
-	// SETTER
-	/**
-	 * setter attribut profil
-	 */
-	public void setProfil(String profil)
-	{
-		this.profil = profil;
-	}
-	
-	/**
-	 * setter attribut idParticipant
-	 */
-	public void setIdParticipant(String idParticipant)
-	{
-		this.idParticipant = idParticipant;
-	}
-	
-	
-	// AUTRES METHODES
-	/**
-	 * Fonction supprimerParticipant
-	 */
-	public void supprimerParticipant()
-	{
-		// à faire
-	}
-	
-	/**
-	 * Fonction afficher
-	 */
-	public void afficher()
-	{
-		System.out.println("Participant" + "\nProfil : " + profil + "\nIdParticipant : " + idParticipant);
-		personneMorale.afficher();
-	}
 }
