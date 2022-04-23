@@ -84,7 +84,7 @@ public class LaissezPasserGUI {
 		JButton btnRetour = new JButton("Retour");
 		btnRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuParticipant nextpage = new MenuParticipant();
+				MenuParticipant nextpage = new MenuParticipant(null);
 				nextpage.main(null);
 				frame.dispose();
 			}

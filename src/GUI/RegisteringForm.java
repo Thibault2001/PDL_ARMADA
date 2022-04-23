@@ -77,7 +77,7 @@ public class RegisteringForm {
 	 */
 	private void Annuler() {
 		try {
-			LoginPage LogPage = new LoginPage();
+			LogInPage LogPage = new LogInPage();
 			LogPage.getFrame().setVisible(true);
 			frame.setVisible(false);
 		} catch (Exception e) {
