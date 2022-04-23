@@ -5,12 +5,16 @@ package Tronc_commun;
  * @param prenomOrganisateur
  * @param nomOrganisateur
  * @param idOrganisateur
- * @author Romain
+ * @author SERAFINI Thibault & TEGUE YOMBI
  * @version 1.0
  */
 
 public class Organisateur 
 {
+	/**
+	 * email de l'organisateur
+	 */
+	String emailOrganisateur;
 	/**
 	 * prenom de l'organisateur
 	 */
@@ -24,7 +28,7 @@ public class Organisateur
 	/**
 	 * identifiant de l'organisateur
 	 */
-	private String idOrganisateur;
+	private int idOrganisateur;
 	
 	/**
 	 * Constructeur de la classe Organisateur
@@ -33,8 +37,9 @@ public class Organisateur
 	 * @param idOrganisateur
 	 */
 	// CONSTRUCTEUR
-	public Organisateur(String prenomOrganisateur, String nomOrganisateur, String idOrganisateur)
+	public Organisateur(String emailOrganisateur, String prenomOrganisateur, String nomOrganisateur, int idOrganisateur)
 	{
+		this.emailOrganisateur = emailOrganisateur;
 		this.prenomOrganisateur = prenomOrganisateur;
 		this.nomOrganisateur = nomOrganisateur;
 		this.idOrganisateur = idOrganisateur;
@@ -42,6 +47,14 @@ public class Organisateur
 	
 	
 	// GETTER
+	/**
+	 * getter attribut emailOrganisateur
+	 */
+	public String getEmailOrganisateur() {
+		// TODO Auto-generated method stub
+		return emailOrganisateur;
+	}
+	
 	/**
 	 * getter attribut prenomOrganisateur
 	 */
@@ -61,7 +74,7 @@ public class Organisateur
 	/**
 	 * getter attribut idOrganisateur
 	 */
-	public String getIdOrganisateur()
+	public int getIdOrganisateur()
 	{
 		return this.idOrganisateur;
 	}
@@ -87,11 +100,8 @@ public class Organisateur
 	/**
 	 * setter attribut idOrganisateur
 	 */
-	public void setIdOrganisateur(String idOrganisateur)
+	public void setIdOrganisateur(int idOrganisateur)
 	{
 		this.idOrganisateur = idOrganisateur;
 	}
-	
-	
-	// AUTRES METHODES
 }

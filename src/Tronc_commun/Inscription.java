@@ -2,206 +2,39 @@ package Tronc_commun;
 
 /**
  * Classe Inscription
- * @param mailInscription
- * @param idInscription
- * @param prenomInscription
- * @param nomInscription
- * @param activite
- * @param motivation
- * @param validation
- * @author Romain
+ * @author SERAFINI Thibault & TEGUE YOMBI Elisée 
  * @version 1.0
- */
-
-public class Inscription 
-{
-	/**
-	 * adresse mail de l'inscrit
+ * */
+public class Inscription {
+	/** 
+	 * reference de l'inscription
 	 */
-	private String mailInscription;
-	
+	private int idInsc;
 	/**
-	 * Identifiant de l'inscrit
+	 * participant
 	 */
-	private String idInscription;
-	
+	private Participant participant = new Participant(0, null, null);	
 	/**
-	 * prenom de l'inscrit
-	 */
-	private String prenomInscription;
-	
 	/**
-	 * nom de l'inscrit
+	 * @param idPM identifiant de ll'inscription
+	 * @param participant le participant associé 
 	 */
-	private String nomInscription;
-	
-	/**
-	 * activité de l'inscrit
-	 */
-	private String activite;
-	
-	/**
-	 * motivation de l'inscrit
-	 */
-	private String motivation;
-	
-	/**
-	 * état de l'inscription
-	 */
-	private boolean validation;
-	
-	/**
-	 * Constructeur de la classe Inscription
-	 * @param mailInscription
-	 * @param idInscription
-	 * @param prenomInscription
-	 * @param nomInscription
-	 * @param activite
-	 * @param motivation
-	 * @param validation
-	 */
-	// CONSTRUCTEUR
-	public Inscription(String mailInscription, String idInscription, String prenomInscription, String nomInscription, String activite, String motivation, boolean validation)
-	{
-		this.mailInscription = mailInscription;
-		this.idInscription = idInscription;
-		this.prenomInscription = prenomInscription;
-		this.nomInscription = nomInscription;
-		this.activite = activite;
-		this.motivation = motivation;
-		this.validation = validation;
+	public Inscription(int idInsc, Participant participant) {
+		this.idInsc = idInsc;
+		this.participant = participant;
 	}
-	
-	
-	// GETTER
 	/**
-	 * getter attribut mailInscription
+	 * getter pour l'attribut reference
+	 * @return valeur de la reference de l'inscription
 	 */
-	public String getMailInscription()
-	{
-		return this.mailInscription;
+	public int getIdInsc() {
+		return idInsc;
 	}
-	
 	/**
-	 * getter attribut idInscription
+	 * getter pour l'attribut participant
+	 * @return le participant associé à l'inscription
 	 */
-	public String getIdInscription()
-	{
-		return this.idInscription;
-	}
-	
-	/**
-	 * getter attribut prenomInscription
-	 */
-	public String getPrenomInscription()
-	{
-		return this.prenomInscription;
-	}
-	
-	/**
-	 * getter attribut nomInscription
-	 */
-	public String getNomInscription()
-	{
-		return this.nomInscription;
-	}
-	
-	/**
-	 * getter attribut activite
-	 */
-	public String getActivite()
-	{
-		return this.activite;
-	}
-	
-	/**
-	 * getter attribut motivation
-	 */
-	public String getMotivation()
-	{
-		return this.motivation;
-	}
-	
-	/**
-	 * getter attribut validation
-	 */
-	public boolean getValidation()
-	{
-		return this.validation;
-	}
-	
-	//SETTER
-	/**
-	 * setter attribut mailInscription
-	 */
-	public void setMailInscription(String mailInscription)
-	{
-		this.mailInscription = mailInscription;
-	}
-	
-	/**
-	 * setter attribut idInscription
-	 */
-	public void setIdInscription(String idInscription)
-	{
-		this.idInscription = idInscription;
-	}
-	
-	/**
-	 * setter attribut prenomInscription
-	 */
-	public void setPrenomInscription(String prenomInscription)
-	{
-		this.prenomInscription = prenomInscription;
-	}
-	
-	/**
-	 * setter attribut nomInscription
-	 */
-	public void setNomInscription(String nomInscription)
-	{
-		this.nomInscription = nomInscription;
-	}
-	
-	/**
-	 * setter attribut activite
-	 */
-	public void setActivite(String activite)
-	{
-		this.activite = activite;
-	}
-	
-	/**
-	 * setter attribut motivation
-	 */
-	public void setmotivation(String motivation)
-	{
-		this.motivation = motivation;
-	}
-	
-	
-	// AUTRES METHODES
-	/**
-	 * Fonction validerInscription
-	 */
-	public void validerInscription(boolean validation)
-	{
-		this.validation = true;
-	}
-	
-	/**
-	 * Fonction supprimerInscription
-	 */
-	public void supprimerInscription(boolean validation)
-	{
-		// à faire
-	}
-	
-	/**
-	 * Fonction afficher
-	 */
-	public void afficher()
-	{
-		System.out.println("Participant" + "\nAdresse mail : " + mailInscription + "\nIdentifiant : " + idInscription + "\nPrenom : " + prenomInscription + "\nNom : " + nomInscription + "\nActivité : " + activite + "\nMotivation : " + motivation + "\nValidation de l'inscription : " + validation);
+	public Participant getParticipant() {
+		return participant;
 	}
 }

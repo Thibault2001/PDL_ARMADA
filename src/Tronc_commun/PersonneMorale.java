@@ -1,8 +1,8 @@
 package Tronc_commun;
 
 /**
- * Classe Supplier
- * @author ESIGELEC - TIC Department
+ * Classe PersonneMorale
+ * @author SERAFINI Thibault & Elisée TEGUE 
  * @version 1.2
  * */
 public class PersonneMorale {
@@ -23,16 +23,26 @@ public class PersonneMorale {
 	 */
 	private String email;
 	/**
+	 * sexe
+	 */
+	private String sexe;
 	/**
+	 * date de naissance
+	 */
+	private String dateNaiss;
+	/**
+	 * Constructeur
 	 * @param idPM identifiant de la personne morale
 	 * @param name nom 
 	 * @param firstName prenom
 	 * @param email adresse mail
 	 */
-	public PersonneMorale(int idPM, String name, String firstName, String email) {
+	public PersonneMorale(int idPM, String name, String firstName, String sexe, String dateNaiss, String email) {
 		this.idPM = idPM;
 		this.name = name;
 		this.firstName = firstName;
+		this.sexe = sexe;
+		this.dateNaiss = dateNaiss;
 		this.email = email;
 	}
 	/**
@@ -52,6 +62,7 @@ public class PersonneMorale {
 	/**
 	 * setter pour l'attribut name
 	 * @param name : nouvelle valeur du nom du participant
+	 * @return 
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -69,6 +80,34 @@ public class PersonneMorale {
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	/**
+	 * getter pour l'attribut sexe
+	 * @return valeur du sexe du participant
+	 */
+	public String getSexe() {
+		return sexe;
+	}
+	/**
+	 * setter pour l'attribut sexe
+	 * @param address : nouvelle valeur du sexe du participant
+	 */
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+	/**
+	 * getter pour l'attribut dateNaiss
+	 * @return valeur de la date de naissance
+	 */
+	public String getDateNaiss() {
+		return dateNaiss;
+	}
+	/**
+	 * setter pour l'attribut dateNaiss
+	 * @param name : nouvelle date de naissance 
+	 */
+	public void setdateNaiss(String dateNaiss) {
+		this.dateNaiss = dateNaiss;
 	}
 	/**
 	 * getter pour l'attribut email

@@ -1,9 +1,9 @@
 package Tronc_commun;
 
 /**
- * Classe Supplier
- * @author ESIGELEC - TIC Department
- * @version 1.2
+ * Classe Participant
+ * @author SERAFINI Thibault & TEGUE YOMBI Elisée
+ * @version 1.0
  * */
 public class Participant {
 	/** 
@@ -17,11 +17,12 @@ public class Participant {
 	/**
 	 * personneMorale
 	 */
-	private PersonneMorale personneMorale;	
+	private PersonneMorale personneMorale = new PersonneMorale(0, null, null, null,null,null);	
 	/**
 	 * Constructor
 	 * @param id identifiant du participant
 	 * @param profile profil du participant
+	 * @param personneMorale personne morale associée au participant
 	 */
 	public Participant(int id, String profile, PersonneMorale personneMorale) {
 		this.id = id;
@@ -48,6 +49,9 @@ public class Participant {
 	 */
 	public void setProfile(String profile) {
 		this.profile = profile;
+	}
+	public PersonneMorale getPersonneMorale() {
+		return personneMorale;
 	}
 
 }
