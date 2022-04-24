@@ -113,13 +113,13 @@ public class LogInPage {
 		frame.getContentPane().add(lblNom);
 		
 		email = new JTextField();
-		email.setBounds(94, 93, 327, 20);
+		email.setBounds(124, 93, 297, 20);
 		frame.getContentPane().add(email);
 		email.setColumns(10);
 		
 		JLabel lblPrnom = new JLabel("Mot de passe ");
 		lblPrnom.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblPrnom.setBounds(0, 129, 124, 26);
+		lblPrnom.setBounds(0, 129, 137, 26);
 		frame.getContentPane().add(lblPrnom);
 		
 		JLabel lblInscription = new JLabel("Espace personnel ARMADA");
@@ -150,7 +150,7 @@ public class LogInPage {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		password = new JPasswordField();
-		password.setBounds(94, 132, 327, 20);
+		password.setBounds(124, 132, 297, 20);
 		frame.getContentPane().add(password);
 		
 		JButton btnNewButton = new JButton("Se connecter ");

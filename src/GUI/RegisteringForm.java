@@ -129,13 +129,13 @@ public class RegisteringForm {
 				}
 			}
 		});
-		textField.setBounds(53, 235, 248, 20);
+		textField.setBounds(53, 235, 176, 20);
 		getFrame().getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblPrnom = new JLabel("Pr\u00E9nom :");
 		lblPrnom.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblPrnom.setBounds(311, 233, 62, 26);
+		lblPrnom.setBounds(288, 233, 134, 26);
 		getFrame().getContentPane().add(lblPrnom);
 		
 		textField_1 = new JTextField();
@@ -167,7 +167,7 @@ public class RegisteringForm {
 				Annuler();
 			}
 		});
-		btnAnnuler.setBounds(577, 357, 89, 23);
+		btnAnnuler.setBounds(0, 371, 89, 23);
 		getFrame().getContentPane().add(btnAnnuler);
 		
 		JLabel lblPrnom_1_1 = new JLabel("Informations sur la personne morale associ\u00E9e au participant :");
@@ -177,12 +177,12 @@ public class RegisteringForm {
 		
 		JLabel lblDateDeNaissance = new JLabel("Date de naissance :");
 		lblDateDeNaissance.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblDateDeNaissance.setBounds(0, 272, 137, 26);
+		lblDateDeNaissance.setBounds(0, 272, 249, 26);
 		frame.getContentPane().add(lblDateDeNaissance);
 		
 		JLabel lblEmail = new JLabel("email :");
 		lblEmail.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblEmail.setBounds(0, 309, 50, 26);
+		lblEmail.setBounds(0, 309, 134, 26);
 		frame.getContentPane().add(lblEmail);
 		
 		textField_2 = new JTextField();
@@ -199,14 +199,14 @@ public class RegisteringForm {
 		textField_2.setBounds(53, 312, 332, 20);
 		frame.getContentPane().add(textField_2);
 		
-		JLabel lblInscription_1 = new JLabel("Vous faites bien de vous inscrire \u00E0 l'un des \u00E9v\u00E8nements phare de la ville Rouen...");
+		JLabel lblInscription_1 = new JLabel("Vous faites bien de vous inscrire \u00E0 l'un des \u00E9v\u00E8nements phare de la ville Rouen !!");
 		lblInscription_1.setFont(new Font("Perpetua", Font.PLAIN, 16));
 		lblInscription_1.setBounds(0, 99, 672, 31);
 		frame.getContentPane().add(lblInscription_1);
 		
 		JLabel lblNom_1 = new JLabel("Vous \u00EAtes");
 		lblNom_1.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblNom_1.setBounds(0, 142, 81, 31);
+		lblNom_1.setBounds(0, 142, 181, 31);
 		frame.getContentPane().add(lblNom_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
@@ -244,11 +244,11 @@ public class RegisteringForm {
 				}
 		});
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "F", "M"}));
-		comboBox_3.setBounds(383, 277, 62, 22);
+		comboBox_3.setBounds(412, 277, 62, 22);
 		frame.getContentPane().add(comboBox_3);
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(147, 278, 154, 20);
+		dateChooser.setBounds(156, 278, 154, 20);
 		frame.getContentPane().add(dateChooser);
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -303,12 +303,12 @@ public class RegisteringForm {
 				System.out.println(dateString);*/
 			}
 		});
-		btnNewButton.setBounds(10, 357, 89, 23);
+		btnNewButton.setBounds(583, 371, 89, 23);
 		getFrame().getContentPane().add(btnNewButton);
 		
-		JLabel lblSexe = new JLabel("Sexe :");
+		JLabel lblSexe = new JLabel("Genre :");
 		lblSexe.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblSexe.setBounds(311, 275, 62, 26);
+		lblSexe.setBounds(342, 272, 100, 26);
 		frame.getContentPane().add(lblSexe);
 	}
 }

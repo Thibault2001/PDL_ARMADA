@@ -48,7 +48,7 @@ public class GererInscriptions {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel GererParticipant = new JLabel("Gestion des inscriptions");
+		JLabel GererParticipant = new JLabel("Gestion les inscriptions");
 		GererParticipant.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		GererParticipant.setBounds(109, 11, 228, 33);
 		frame.getContentPane().add(GererParticipant);
