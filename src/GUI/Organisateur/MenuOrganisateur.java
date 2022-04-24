@@ -33,6 +33,7 @@ public class MenuOrganisateur {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					MenuOrganisateur window = new MenuOrganisateur();
 					window.getFrame().setVisible(true);
 				} catch (Exception e) {
