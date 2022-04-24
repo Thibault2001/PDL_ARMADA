@@ -33,7 +33,7 @@ public class MenuOrganisateur {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenuOrganisateur window = new MenuOrganisateur(null);
+					MenuOrganisateur window = new MenuOrganisateur();
 					window.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,7 @@ public class MenuOrganisateur {
 	 * Create the application.
 	 * @param l'organisateur qui s'est connecte 
 	 */
-	public MenuOrganisateur(Organisateur o) {
+	public MenuOrganisateur() {
 		initialize();
 	}
 

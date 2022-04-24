@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import GUI.Organisateur.MenuOrganisateur;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -61,7 +64,7 @@ public class ZoneGUI {
 				frame.dispose();
 			}
 		});
-		btnSupprimerZone.setBounds(78, 149, 134, 44);
+		btnSupprimerZone.setBounds(29, 149, 183, 44);
 		frame.getContentPane().add(btnSupprimerZone);
 		
 		JButton btnAjouterZone = new JButton("Ajouter une zone");
@@ -86,7 +89,18 @@ public class ZoneGUI {
 				//Bouton liste des zones
 			}
 		});
-		btnListeDesZones.setBounds(171, 209, 134, 44);
+		btnListeDesZones.setBounds(257, 203, 134, 44);
 		frame.getContentPane().add(btnListeDesZones);
+		
+		JButton btnRetour = new JButton("Retour");
+		btnRetour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuOrganisateur nextpage = new MenuOrganisateur();
+				nextpage.main(null);
+				frame.dispose();
+			}
+		});
+		btnRetour.setBounds(35, 203, 134, 44);
+		frame.getContentPane().add(btnRetour);
 	}
 }
