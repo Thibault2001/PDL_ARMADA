@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import GUI.GererInscriptions;
+import GUI.Zone.SupprimerZone;
+import GUI.Zone.ZoneGUI;
 import Tronc_commun.Organisateur;
 
 //import GUI.Zone.SupprimerZone;
@@ -79,6 +81,9 @@ public class MenuOrganisateur {
 		JButton GererZone = new JButton("G\u00E9rer les zones");
 		GererZone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ZoneGUI nextpage = new ZoneGUI();
+				nextpage.main(null);
+				frame.dispose();
 			}
 		});
 		GererZone.setFont(new Font("Tahoma", Font.PLAIN, 15));
