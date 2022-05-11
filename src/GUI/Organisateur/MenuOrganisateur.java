@@ -34,7 +34,7 @@ public class MenuOrganisateur {
 			public void run() {
 				try {
 					
-					MenuOrganisateur window = new MenuOrganisateur();
+					MenuOrganisateur window = new MenuOrganisateur(null);
 					window.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class MenuOrganisateur {
 	 * Create the application.
 	 * @param l'organisateur qui s'est connecte 
 	 */
-	public MenuOrganisateur() {
+	public MenuOrganisateur(Organisateur o) {
 		initialize();
 	}
 

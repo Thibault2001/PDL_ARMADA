@@ -9,7 +9,6 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-import GUI.Organisateur.MenuOrganisateur;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -51,11 +50,6 @@ public class ZoneGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Esigelec.png"));
-		lblNewLabel_1.setBounds(10, 10, 159, 88);
-		frame.getContentPane().add(lblNewLabel_1);
-		
 		JButton btnSupprimerZone = new JButton("Supprimer une zone");
 		btnSupprimerZone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +58,7 @@ public class ZoneGUI {
 				frame.dispose();
 			}
 		});
-		btnSupprimerZone.setBounds(29, 149, 183, 44);
+		btnSupprimerZone.setBounds(10, 98, 183, 34);
 		frame.getContentPane().add(btnSupprimerZone);
 		
 		JButton btnAjouterZone = new JButton("Ajouter une zone");
@@ -75,32 +69,31 @@ public class ZoneGUI {
 				frame.dispose();
 			}
 		});
-		btnAjouterZone.setBounds(257, 149, 134, 44);
+		btnAjouterZone.setBounds(242, 98, 182, 33);
 		frame.getContentPane().add(btnAjouterZone);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Armada.jpg"));
-		lblNewLabel.setBounds(243, 23, 183, 123);
-		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnListeDesZones = new JButton("Liste des zones");
 		btnListeDesZones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Bouton liste des zones
+				ListeZone nextPage = new ListeZone();
+				nextPage.getFrame().setVisible(true);
 			}
 		});
-		btnListeDesZones.setBounds(257, 203, 134, 44);
+		btnListeDesZones.setBounds(124, 159, 182, 34);
 		frame.getContentPane().add(btnListeDesZones);
 		
-		JButton btnRetour = new JButton("Retour");
-		btnRetour.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("Retour");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuOrganisateur nextpage = new MenuOrganisateur();
-				nextpage.main(null);
-				frame.dispose();
+				frame.setVisible(false);
 			}
 		});
-		btnRetour.setBounds(35, 203, 134, 44);
-		frame.getContentPane().add(btnRetour);
+		btnNewButton.setBounds(176, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblGestionDesZones = new JLabel("Gestion des zones");
+		lblGestionDesZones.setFont(new Font("Perpetua", Font.BOLD, 21));
+		lblGestionDesZones.setBounds(138, 11, 164, 33);
+		frame.getContentPane().add(lblGestionDesZones);
 	}
 }

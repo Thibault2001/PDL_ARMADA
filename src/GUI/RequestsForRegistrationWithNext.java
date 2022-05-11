@@ -101,7 +101,7 @@ public class RequestsForRegistrationWithNext  {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\PDL charts\\logo_Esig_real.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\\\Users\\\\Serafini Thibault\\\\Desktop\\\\Eclipse\\\\ARMADA 2023\\\\src\\\\GUI\\\\Esigelec.png"));
 		lblNewLabel_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 21));
 		lblNewLabel_2.setBounds(0, 0, 168, 40);
 		frame.getContentPane().add(lblNewLabel_2);

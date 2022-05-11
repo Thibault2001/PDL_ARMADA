@@ -12,11 +12,11 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-import GUI.Organisateur.*;
-import GUI.Participant.*;
 import DAO.CompteDAO;
 import DAO.OrganisateurDAO;
 import DAO.PersonneMoraleDAO;
+import GUI.Organisateur.MenuOrganisateur;
+import GUI.Participant.MenuParticipant;
 import Tronc_commun.Compte;
 import Tronc_commun.Organisateur;
 
@@ -102,24 +102,24 @@ public class LogInPage {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\PDL charts\\logo_Esig_real.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Esigelec.png"));
 		lblNewLabel_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 21));
-		lblNewLabel_2.setBounds(0, 0, 168, 40);
+		lblNewLabel_2.setBounds(0, 0, 176, 51);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNom = new JLabel("Identifiant ");
 		lblNom.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblNom.setBounds(0, 92, 99, 26);
+		lblNom.setBounds(20, 93, 99, 26);
 		frame.getContentPane().add(lblNom);
 		
 		email = new JTextField();
-		email.setBounds(124, 93, 297, 20);
+		email.setBounds(133, 93, 288, 20);
 		frame.getContentPane().add(email);
 		email.setColumns(10);
 		
 		JLabel lblPrnom = new JLabel("Mot de passe ");
 		lblPrnom.setFont(new Font("Perpetua", Font.BOLD, 16));
-		lblPrnom.setBounds(0, 129, 137, 26);
+		lblPrnom.setBounds(20, 129, 124, 26);
 		frame.getContentPane().add(lblPrnom);
 		
 		JLabel lblInscription = new JLabel("Espace personnel ARMADA");
@@ -150,7 +150,7 @@ public class LogInPage {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		password = new JPasswordField();
-		password.setBounds(124, 132, 297, 20);
+		password.setBounds(133, 132, 288, 20);
 		frame.getContentPane().add(password);
 		
 		JButton btnNewButton = new JButton("Se connecter ");

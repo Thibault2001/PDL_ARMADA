@@ -38,7 +38,7 @@ public class OrganisateurDAO extends ConnexionDAO {
 			// preparation de l'instruction SQL, chaque ? represente une valeur
 			// a communiquer dans l'insertion.
 			// les getters permettent de recuperer les valeurs des attributs souhaites
-			ps = con.prepareStatement("INSERT INTO organisateur (idorganisateur, prenomorganisateur, nomorganisateur, emailorganisateur) VALUES (IDORGANISATEUR_SEQ.nextVal, ?, ?, ?)");
+			ps = con.prepareStatement("INSERT INTO organisateur (idorganisateur, prenomorganisateur, nomorganisateur, emailorganisateur,password) VALUES (IDORGANISATEUR_SEQ.nextVal, ?, ?,?, ?)");
 			ps.setString(1, organisateur.getPrenomOrganisateur());
 			ps.setString(2, organisateur.getNomOrganisateur());
 			ps.setString(3, organisateur.getEmailOrganisateur());
