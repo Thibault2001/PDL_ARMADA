@@ -66,6 +66,11 @@ public class MenuOrganisateur {
 		getFrame().getContentPane().add(lblNewLabel);
 		
 		JButton GererLP = new JButton("G\u00E9rer les laissez-passer");
+		GererLP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		GererLP.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GererLP.setBounds(21, 95, 210, 44);
 		getFrame().getContentPane().add(GererLP);
@@ -84,7 +89,7 @@ public class MenuOrganisateur {
 			public void actionPerformed(ActionEvent e) {
 				ZoneGUI nextpage = new ZoneGUI();
 				nextpage.main(null);
-				frame.dispose();
+				//frame.dispose();
 			}
 		});
 		GererZone.setFont(new Font("Tahoma", Font.PLAIN, 15));

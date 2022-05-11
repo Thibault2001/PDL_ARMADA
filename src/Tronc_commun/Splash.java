@@ -97,7 +97,7 @@ public class Progression  implements Runnable
                                                 progress.setString(j+" %");
 					try
 					{
-					thread.sleep(110);//determination de la rapiditée de la frame
+					thread.sleep(30);//determination de la rapiditée de la frame
 					}
 				catch(Exception e)
 					{
@@ -136,7 +136,7 @@ public class Progression  implements Runnable
 			}
 		});
 		int second = java.time.LocalTime.now().getSecond();
-		int help = second+15;
+		int help = second+5;
 		do
 		{
 			second = java.time.LocalTime.now().getSecond();

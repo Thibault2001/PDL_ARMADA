@@ -171,7 +171,6 @@ public class ListeZone {
 		JButton btnSupprimer = new JButton("Supprimer\r\n");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 					Zone zone = new Zone (table_1.getValueAt(table_1.getSelectedRow(),0).toString(),Integer.parseInt(table_1.getValueAt(table_1.getSelectedRow(),3).toString()), table_1.getValueAt(table_1.getSelectedRow(),2).toString(), table_1.getValueAt(table_1.getSelectedRow(),1).toString(), Integer.parseInt(table_1.getValueAt(table_1.getSelectedRow(),4).toString()));
 					new ZoneDAO().delete(zone);
 			}
