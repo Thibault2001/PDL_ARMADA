@@ -74,7 +74,9 @@ public class Splash {
 	progress.setBounds(new Rectangle(10, 226, 420, 17));
 	
 	JLabel lblNewLabel = new JLabel("New label");
-	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\armada logo.png"));
+	String chemin = "armada logo.png";
+	String resource = getClass().getClassLoader().getResource(chemin).getPath();
+	lblNewLabel.setIcon(new ImageIcon(resource));
 	lblNewLabel.setBounds(0, 0, 440, 250);
 	panel.add(lblNewLabel);
 	// Création de thread pour afficher la progression de la barre
@@ -127,7 +129,7 @@ public class Progression  implements Runnable
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Splash window = new  Splash(null,"Chargement en cours...Veuillez patienter","C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\armada icon real.png");//Path de l'image qu'on veut ,message,ainsi que l icone de la fenetre
+					Splash window = new Splash(null,"Chargement en cours...Veuillez patienter","C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\Image\\armada icon real.png");//Path de l'image qu'on veut ,message,ainsi que l icone de la fenetre
 					//window.frame.se
 					window.frame.setVisible(true);
 				} catch (Exception e) {

@@ -3,9 +3,14 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Lot1.*;
+import Tronc_commun.Inscription;
+import Tronc_commun.Participant;
+import Tronc_commun.PersonneMorale;
 
 public class LaissezPasserDAO extends ConnexionDAO {
 	Scanner lectureClavier = new Scanner(System.in);
@@ -149,6 +154,97 @@ public class LaissezPasserDAO extends ConnexionDAO {
 			} 
 			catch (Exception ignore) 
 			{
+			}
+		}
+		return returnValue;
+	}
+	public int getId(String email) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int returnValue = 0;
+
+		// connexion a la base de donnees
+		try {
+
+			con = DriverManager.getConnection(URL, LOGIN, PASS);
+			ps = con.prepareStatement("SELECT idinscription FROM inscription WHERE adressemail = ?");
+			ps.setString(1, email);
+
+			// on execute la requete
+			// rs contient un pointeur situe juste avant la premiere ligne retournee
+			rs = ps.executeQuery();
+			// passe a la premiere (et unique) ligne retournee
+			if (rs.next()) {
+				returnValue = rs.getInt("idinscription");
+			}
+		} catch (Exception ee) {
+			ee.printStackTrace();
+		} finally {
+			// fermeture du ResultSet, du PreparedStatement et de la Connexion
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception ignore) {
+			}
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (Exception ignore) {
+			}
+			try {
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception ignore) {
+			}
+		}
+		return returnValue;
+	}
+	
+	
+	/**
+	 * Permet de recuperer tous les fournisseurs stockes dans la table fournisseur
+	 * 
+	 * @return une ArrayList de fournisseur
+	 */
+	public static ArrayList<Inscription> getList() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<Inscription> returnValue = new ArrayList<Inscription>();
+
+		// connexion a la base de donnees
+		try {
+			con = DriverManager.getConnection(URL, LOGIN, PASS);
+			ps = con.prepareStatement("SELECT * FROM inscription ORDER BY IDINSCRIPTION");
+			//ps.setString(1, null);			//selectionne uniquement les inscriptions non validées
+			// on execute la requete
+			rs = ps.executeQuery();
+			// on parcourt les lignes du resultat
+			while (rs.next()) {
+				returnValue.add(new Inscription(rs.getInt("IDINSCRIPTION"), new Participant(rs.getInt("IDINSCRIPTION"), rs.getString("ACTIVITEINSCRIPTION"), new PersonneMorale(rs.getInt("IDINSCRIPTION"), rs.getString("NOMINSCRIPTION"), rs.getString("PRENOMINSCRIPTION"),null,null,rs.getString("ADRESSEMAIL")))));
+			}
+		} catch (Exception ee) {
+			ee.printStackTrace();
+		} finally {
+			// fermeture du rs, du preparedStatement et de la connexion
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ignore) {
+			}
+			try {
+				if (ps != null)
+					ps.close();
+			} catch (Exception ignore) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ignore) {
 			}
 		}
 		return returnValue;

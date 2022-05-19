@@ -54,8 +54,10 @@ public class ErrorSaisie {
 		lblNewLabel.setBounds(250, 10, 218, 84);
 		frameErrorSaisie.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Serafini Thibault\\Desktop\\Eclipse\\ARMADA 2023\\src\\GUI\\Attention.png"));
+		JLabel lblNewLabel_1 = new JLabel("");
+		String chemin = "Attention.png";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel_1.setIcon(new ImageIcon(resource));
 		lblNewLabel_1.setBounds(10, 10, 199, 253);
 		frameErrorSaisie.getContentPane().add(lblNewLabel_1);
 		

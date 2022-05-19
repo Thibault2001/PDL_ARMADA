@@ -105,7 +105,10 @@ public class ListOfAttendees {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\PDL charts\\logo_Esig_real.png"));
+		String chemin = "Esig_real.png";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel_2.setIcon(new ImageIcon(resource));
+		lblNewLabel_2.setIcon(new ImageIcon(resource));
 		lblNewLabel_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 21));
 		lblNewLabel_2.setBounds(0, 0, 168, 40);
 		frame.getContentPane().add(lblNewLabel_2);
